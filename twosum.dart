@@ -15,10 +15,17 @@ void main() {
 
 List<int> twoSum(List<int> nums, int target) {
   List<int> output = [];
-  for (var i = 1; i < nums.length; i++) {
-    if (target - nums[i] == nums[i - 1]) {
-      output.add(i - 1);
+  int num1 = 0;
+  for (var i = 0; i < nums.length; i++) {
+    if (nums.contains(target - nums[i])) {
+      num1 = nums[i];
       output.add(i);
+      break;
+    }
+  }
+  for (var j = 0; j < nums.length; j++) {
+    if (num1 + nums[j] == target) {
+      output.add(j);
     }
   }
   return output;
